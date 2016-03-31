@@ -22,7 +22,7 @@ function vendor() {
 
   echo "Fetching $binary" | indent
   mkdir -p $path
-  curl $binary -s -o - | tar xz -C $path -f -
+  wget $binary -s -o - | tar xz -C $path -f -
 
   [ -d "$path/bin" ] && export PATH=$path/bin:$PATH
   export CPPPATH="$path/include:$CPPPATH"
@@ -35,8 +35,8 @@ function vendor() {
 }
 
 echo "-----> Vendoring binaries"
-vendor "https://www.dropbox.com/s/3towpy5w8g8sbig/gdal-1.11.1-1.tar.gz?dl=1" "$BUILD_DIR/vendor/gdal"
-vendor "https://www.dropbox.com/s/6ti7v12yglcjidb/proj-4.8.0-1.tar.gz?dl=1"  "$BUILD_DIR/vendor/proj"
+vendor "https://dl.dropboxusercontent.com/content_link/LUTkHDfRcL6M64Jt3zuswvb9GdAxkXJSY4gFudUz5DIwtTShwZwbUBbjVqGngHEB/file?dl=1" "$BUILD_DIR/vendor/gdal"
+vendor "https://dl.dropboxusercontent.com/content_link/m6hKIR4SjV8N8vPwrI1WlMe2pUp1UtdFpFcQQwVCWBYEajtSUlVpnNNXWlDD3Slj/file?dl=1"  "$BUILD_DIR/vendor/proj"
 
 echo "-----> Configuring build environment"
 
