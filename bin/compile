@@ -38,6 +38,7 @@ echo "-----> Vendoring binaries"
 vendor "https://www.dropbox.com/s/3towpy5w8g8sbig/gdal-1.11.1-1.tar.gz?dl=1" "$BUILD_DIR/vendor/gdal"
 vendor "https://www.dropbox.com/s/6ti7v12yglcjidb/proj-4.8.0-1.tar.gz?dl=1"  "$BUILD_DIR/vendor/proj"
 
+apt-get install libjpeg62
 echo "-----> Configuring build environment"
 
 cat <<EOF > $BUILDPACK_DIR/export
