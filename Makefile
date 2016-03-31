@@ -1,10 +1,10 @@
 default: cedar cedar-14
 
-cedar: dist/cedar/gdal-1.11.1-1.tar.gz dist/cedar/proj-4.8.0-1.tar.gz
+cedar: dist/cedar/gdal-1.11.4.tar.gz dist/cedar/proj-4.8.0-1.tar.gz
 
-cedar-14: dist/cedar-14/gdal-1.11.1-1.tar.gz dist/cedar-14/proj-4.8.0-1.tar.gz
+cedar-14: dist/cedar-14/gdal-1.11.4.tar.gz dist/cedar-14/proj-4.8.0-1.tar.gz
 
-dist/cedar/gdal-1.11.1-1.tar.gz: gdal-cedar
+dist/cedar/gdal-1.11.4.tar.gz: gdal-cedar
 	docker cp $<:/tmp/gdal-cedar.tar.gz .
 	mkdir -p $$(dirname $@)
 	mv gdal-cedar.tar.gz $@
@@ -14,7 +14,7 @@ dist/cedar/proj-4.8.0-1.tar.gz: gdal-cedar
 	mkdir -p $$(dirname $@)
 	mv proj-cedar.tar.gz $@
 
-dist/cedar-14/gdal-1.11.1-1.tar.gz: gdal-cedar-14
+dist/cedar-14/gdal-1.11.4.tar.gz: gdal-cedar-14
 	docker cp $<:/tmp/gdal-cedar-14.tar.gz .
 	mkdir -p $$(dirname $@)
 	mv gdal-cedar-14.tar.gz $@
@@ -31,7 +31,7 @@ clean:
 
 src/gdal.tar.gz:
 	mkdir -p $$(dirname $@)
-	curl -sL http://download.osgeo.org/gdal/1.11.1/gdal-1.11.1.tar.gz -o $@
+	curl -sL http://download.osgeo.org/gdal/1.11.4/gdal-1.11.4.tar.gz -o $@
 
 src/proj-datumgrid.tar.gz:
 	mkdir -p $$(dirname $@)
